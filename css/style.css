@@ -1,0 +1,77 @@
+body{
+  margin: 0;
+}
+nav{
+  display: flex;
+  justify-content:space-between;
+  text-align: center;
+  background-color: #a005cf;
+  padding: 5px;
+}
+nav ul{
+  display: flex;
+  text-align: center;
+  width: 50%;
+  text-decoration: none;
+}
+nav ul li {
+  list-style: none;
+  margin: 10px;
+  cursor: pointer;
+}
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+form{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 9px black;
+  border-radius: 15px;
+  padding: 10px;
+}
+form input{
+  width: 85%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 7px;
+}
+form input:focus + .labelForm{
+
+  transition: all 0.5s;
+}
+
+
+/* --Clases-- */
+.logo{
+  width: 15%;
+}
+/* .labelForm{
+  
+} */
+.nav-links{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0px 0px 5px black;
+  padding: 5px 12px 5px 12px;
+  border-radius: 5px;
+  background-color: #660285;
+  color: white;
+}
+.sendButton{
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 35%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
