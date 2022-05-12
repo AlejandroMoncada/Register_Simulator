@@ -6,14 +6,24 @@ const inputPassword = document.getElementById("inputPassword");
 const inputPasswordConfirm = document.getElementById("inputPasswordConfirm")
 const btnSend = document.getElementById("btn");
 
+//Variables para login
+const userNameLogin = document.getElementById("UserName");
+const PasswordLogin = document.getElementById("Password");
+
 //Eventos a utilizar.
 //eventos para registro
-inputName.addEventListener("keyup", nameValid);
-inputUserName.addEventListener("keyup", userNameValid);
-inputPassword.addEventListener("keyup", passwordValid);
-inputPasswordConfirm.addEventListener("keyup", passwordValid);
-btnSend.addEventListener("click", saveData);
-btnSend.addEventListener("click", showData);
+if (inputName) {
+  inputName.addEventListener("keyup", nameValid);
+  inputUserName.addEventListener("keyup", userNameValid);
+  inputPassword.addEventListener("keyup", passwordValid);
+  inputPasswordConfirm.addEventListener("keyup", passwordValid);
+  btnSend.addEventListener("click", saveData);
+}
+
+//Eventos para login
+if (userNameLogin) {
+  userNameLogin.addEventListener("keyup",showData);
+}
 
 const regExp = {
   user: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
@@ -24,18 +34,13 @@ const regExp = {
 
 let users = [];
 
-function save(){
-  return users(nameuser,password)
-}
-
-
 function showData(){
-  let name = JSON.parse(localStorage.getItem(storageData.userName));
   
-  console.log(name);
+  console.log(users);
 }
 
 function saveData(){
+  
   let nameFull = inputName.value;
   let nameUser = inputUserName.value;
   let pass = inputPassword.value;
@@ -48,12 +53,15 @@ function saveData(){
     passwordConfirm:passConfirm 
   };
 
-  users.unshift(storageData.password,storageData.userName);
-  localStorage.setItem(storageData.userName, JSON.stringify(storageData))
-
+  users.push({userName : storageData});
+  console.log(users);
+  // let keyStorage = storageData.userName;
+  // localStorage.setItem(keyStorage, JSON.stringify(storageData));
+  
 }
 
 function nameValid(event){
+  event.preventDefault()
   const keyboardEvent = event.target.value; 
 
   if(regExp.name.test(keyboardEvent)){
@@ -65,6 +73,7 @@ function nameValid(event){
 } 
 
 function userNameValid(event){
+  event.preventDefault()
   const keyboardEvent = event.target.value; 
 
   if(regExp.user.test(keyboardEvent)){
@@ -76,6 +85,7 @@ function userNameValid(event){
 }
 
 function passwordValid(event){
+  event.preventDefault()
   const keyboardEvent = event.target.value; 
   let incriptation;
 

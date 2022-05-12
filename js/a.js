@@ -1,34 +1,14 @@
-const inputName = document.getElementById("inputName");
-const inputUserName = document.getElementById("inputUserName");
-const inputPassword = document.getElementById("inputPassword");
-const inputPasswordConfirm = document.getElementById("inputPasswordConfirm")
-const btnSend = document.getElementById("btn");
+import app.js;
 
-btnSend.addEventListener("click", showData);
-btnSend.addEventListener("click", saveData);
+const user = document.getElementById("UserName");
+const passwor = document.getElementById("Password");
 
-let users = [];
+user.addEventListener("keyup", userName);
 
-let nameFull = inputName.value;
-let nameUser = inputUserName.value;
-let pass = inputPassword.value;
-let passConfirm = inputPasswordConfirm.value;
-
-let storageData = {
-  fullName: nameFull ,
-  userName: nameUser ,
-  password: pass ,
-  passwordConfirm:passConfirm 
-};
-
-function showData(){
-  let name = JSON.parse(localStorage.getItem("iku"));
-  
-  console.log(name);
-}
-
-function saveData(){
-  users.unshift(storageData);
-  localStorage.setItem("iku", JSON.stringify(storageData));
-
+function userName(event) {
+  console.log(event.keyCode);
+  if(event.keyCode === 13){
+    const user = localStorage.getItem();
+    console.log(user);
+  }
 }
